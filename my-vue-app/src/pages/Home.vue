@@ -1,9 +1,11 @@
 <template>
   <section class="page home">
     <div class="hero">
-      <h1>Welcome to ExportCo</h1>
-      <p>Your trusted partner for quality exports worldwide.</p>
-      <button @click="$router.push('/contact')">Contact Us</button>
+      <h1>{{ $t('home.welcome') }}</h1>
+      <p>{{ $t('home.subtitle') }}</p>
+      <h2>{{ $t('home.slogan') }}</h2>
+      <p class="description">{{ $t('home.description') }}</p>
+      <button @click="$router.push('/contact')">{{ $t('home.contactBtn') }}</button>
     </div>
   </section>
 </template>

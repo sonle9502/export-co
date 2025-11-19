@@ -1,17 +1,25 @@
 <template>
   <section class="page contact">
-    <h1>Contact Us</h1>
-    <p>Feel free to reach out for inquiries or orders.</p>
+    <h1>{{ info.title }}</h1>
+    <p>{{ info.description }}</p>
     <div class="contact-info">
-      <p>Email: <a href="mailto:info@exportco.com">info@exportco.com</a></p>
-      <p>Phone: +84 123 456 789</p>
-      <p>Address: 123 Export Street, Ho Chi Minh City, Vietnam</p>
+      <p>Email: <a :href="`mailto:${info.email}`">{{ info.email }}</a></p>
+      <p>Phone: {{ info.phone }}</p>
+      <p>Address: {{ info.address }}</p>
     </div>
   </section>
 </template>
 
 <script>
-export default {}
+import messages from '../locales'
+
+export default {
+  computed: {
+    info() {
+      return messages[this.$i18n.locale].contact
+    }
+  }
+}
 </script>
 
 <style scoped>

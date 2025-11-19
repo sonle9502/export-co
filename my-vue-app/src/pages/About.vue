@@ -1,18 +1,24 @@
 <template>
   <section class="page about">
-    <h1>About Us</h1>
-    <p>ExportCo is a leading export company delivering high-quality products globally. We specialize in connecting Vietnamese manufacturers with international markets.</p>
+    <h1>{{ about.title }}</h1>
+    <p>{{ about.description }}</p>
     <ul>
-      <li>High-quality products</li>
-      <li>Reliable logistics</li>
-      <li>Customer-focused service</li>
-      <li>ISO certified</li>
+      <li v-for="(item, index) in about.features" :key="index">{{ item }}</li>
     </ul>
   </section>
 </template>
 
 <script>
-export default {}
+import messages from '../locales'
+
+export default {
+  computed: {
+    about() {
+      // lấy array trực tiếp từ messages theo locale hiện tại
+      return messages[this.$i18n.locale].about
+    }
+  }
+}
 </script>
 
 <style scoped>
