@@ -6,6 +6,8 @@
       v-for="(product, index) in products"
       :key="index"
       class="product-row"
+      @click="goDetail(product.id)"  
+      style="cursor: pointer;"
     >
       <!-- TEXT -->
       <div class="product-info">
@@ -29,27 +31,34 @@
 <script>
 export default {
   data() {
-    return {
-      products: [
-        {
-          name: "Product A",
-          description: "High quality, exported worldwide.",
-          videoId: "rNiCXC5hiF0",
-        },
-        {
-          name: "Product B",
-          description: "Premium selection for international markets.",
-          videoId: "GpJIEw6Cz5Y",
-        },
-        {
-          name: "Product C",
-          description: "Trusted by clients across Asia and Europe.",
-          videoId: "GpJIEw6Cz5Y",
-        },
-        // Thêm sản phẩm khác nếu cần
-      ],
-    };
+  return {
+    products: [
+      {
+        id: 1,
+        name: "Product A",
+        description: "High quality, exported worldwide.",
+        videoId: "rNiCXC5hiF0",
+      },
+      {
+        id: 2,
+        name: "Product B",
+        description: "Premium selection for international markets.",
+        videoId: "GpJIEw6Cz5Y",
+      },
+      {
+        id: 3,
+        name: "Product C",
+        description: "Trusted by clients across Asia and Europe.",
+        videoId: "GpJIEw6Cz5Y",
+      },
+    ]
+  }
   },
+  methods: {
+    goDetail(id) {
+      this.$router.push({ name: 'ProductDetail', params: { id } });
+    }
+  }
 };
 </script>
 
