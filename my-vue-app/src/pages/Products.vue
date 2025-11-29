@@ -34,17 +34,17 @@ export default {
         {
           name: "Product A",
           description: "High quality, exported worldwide.",
-          videoId: "GpJIEw6Cz5Y",
+          videoId: "rNiCXC5hiF0",
         },
         {
           name: "Product B",
           description: "Premium selection for international markets.",
-          videoId: "dQw4w9WgXcQ",
+          videoId: "GpJIEw6Cz5Y",
         },
         {
           name: "Product C",
           description: "Trusted by clients across Asia and Europe.",
-          videoId: "3JZ_D3ELwOQ",
+          videoId: "GpJIEw6Cz5Y",
         },
         // Thêm sản phẩm khác nếu cần
       ],
