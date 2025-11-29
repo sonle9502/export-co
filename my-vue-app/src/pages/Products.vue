@@ -1,63 +1,128 @@
 <template>
   <section class="page products">
     <h1>Our Products</h1>
-    <div class="product-grid">
-      <div class="product-card">
-        <h2>Product A</h2>
-        <p>High quality, exported worldwide.</p>
+
+    <div
+      v-for="(product, index) in products"
+      :key="index"
+      class="product-row"
+    >
+      <!-- TEXT -->
+      <div class="product-info">
+        <h2>{{ product.name }}</h2>
+        <p>{{ product.description }}</p>
       </div>
-      <div class="product-card">
-        <h2>Product B</h2>
-        <p>Premium selection for international markets.</p>
-      </div>
-      <div class="product-card">
-        <h2>Product C</h2>
-        <p>Trusted by clients across Asia and Europe.</p>
+
+      <!-- VIDEO -->
+      <div class="video-wrapper">
+        <iframe
+          :src="`https://www.youtube.com/embed/${product.videoId}`"
+          frameborder="0"
+          allow="autoplay; encrypted-media; picture-in-picture"
+          allowfullscreen
+        ></iframe>
       </div>
     </div>
   </section>
 </template>
 
 <script>
-export default {}
+export default {
+  data() {
+    return {
+      products: [
+        {
+          name: "Product A",
+          description: "High quality, exported worldwide.",
+          videoId: "GpJIEw6Cz5Y",
+        },
+        {
+          name: "Product B",
+          description: "Premium selection for international markets.",
+          videoId: "dQw4w9WgXcQ",
+        },
+        {
+          name: "Product C",
+          description: "Trusted by clients across Asia and Europe.",
+          videoId: "3JZ_D3ELwOQ",
+        },
+        // Thêm sản phẩm khác nếu cần
+      ],
+    };
+  },
+};
 </script>
 
 <style scoped>
 .page {
   padding: 60px 20px;
-  max-width: 1000px;
+  max-width: 1200px;
   margin: auto;
 }
 
 .page h1 {
   text-align: center;
   color: #004080;
-  margin-bottom: 40px;
+  margin-bottom: 60px;
 }
 
-.product-grid {
+/* PRODUCT ROW */
+.product-row {
   display: flex;
   gap: 20px;
-  flex-wrap: wrap;
-  justify-content: center;
+  align-items: flex-start;
+  margin-bottom: 60px;
+  flex-wrap: nowrap; /* cùng 1 hàng trên desktop */
 }
 
-.product-card {
-  flex: 0 0 280px;
-  background: #f5f5f5;
-  padding: 25px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  text-align: center;
-  transition: transform 0.3s;
+/* TEXT */
+.product-info {
+  flex: 0 0 35%;
+  min-width: 250px;
 }
 
-.product-card:hover {
-  transform: translateY(-5px);
-}
-
-.product-card h2 {
+.product-info h2 {
   color: #004080;
   margin-bottom: 10px;
+}
+
+.product-info p {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* VIDEO */
+.video-wrapper {
+  flex: 0 0 65%;
+  min-width: 400px;
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;  /* tỷ lệ video */
+  max-height: 450px;     /* chiều cao tối đa → video thấp hơn */
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* Responsive cho mobile */
+@media (max-width: 768px) {
+  .product-row {
+    flex-direction: column;
+  }
+  .product-info,
+  .video-wrapper {
+    flex: 1 1 100%;
+    min-width: auto;
+  }
+  .video-wrapper {
+    max-height: none; /* mobile tự co dãn */
+  }
 }
 </style>
