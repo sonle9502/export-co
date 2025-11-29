@@ -6,13 +6,12 @@
       v-for="(product, index) in products"
       :key="index"
       class="product-row"
-      @click="goDetail(product.id)"  
-      style="cursor: pointer;"
     >
       <!-- TEXT -->
       <div class="product-info">
         <h2>{{ product.name }}</h2>
         <p>{{ product.description }}</p>
+        <button class="detail-button" @click="goDetail(product.id)">View Details</button>
       </div>
 
       <!-- VIDEO -->
@@ -118,6 +117,20 @@ export default {
   width: 100%;
   height: 100%;
   border: 0;
+}
+
+.detail-button {
+  padding: 8px 16px;
+  background-color: #004080;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.detail-button:hover {
+  background-color: #0059b3;
 }
 
 /* Responsive cho mobile */

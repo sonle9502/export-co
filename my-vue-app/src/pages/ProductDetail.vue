@@ -17,6 +17,9 @@
         allowfullscreen
       ></iframe>
     </div>
+
+    <!-- Back Button -->
+    <button class="back-button" @click="$router.back()">← Back</button>
   </div>
 </template>
 
@@ -29,22 +32,20 @@ export default {
     };
   },
   created() {
-    // Dữ liệu tĩnh (có thể thay bằng API)
     const products = [
       {
         id: 1,
         name: "Cá cơm mờm hấp",
         description: "High quality, exported worldwide.",
         details: [
-            "Quality: fresh, clean, retains natural flavor",
-            "Packaging: vacuum-sealed, convenient for export",
-            "Origin: Ca Mau, Vietnam",
-            "Storage: keep refrigerated / frozen",
-            "Weight: 500g / box",
-            "Shelf life: 6 months from production date",
-            "Certification: HACCP, ISO (if available)",
-            "Export markets: Japan, South Korea, EU, USA"
-
+          "Quality: fresh, clean, retains natural flavor",
+          "Packaging: vacuum-sealed, convenient for export",
+          "Origin: Ca Mau, Vietnam",
+          "Storage: keep refrigerated / frozen",
+          "Weight: 500g / box",
+          "Shelf life: 6 months from production date",
+          "Certification: HACCP, ISO (if available)",
+          "Export markets: Japan, South Korea, EU, USA"
         ],
         videoId: "rNiCXC5hiF0",
       },
@@ -53,9 +54,9 @@ export default {
         name: "Product B",
         description: "Premium selection for international markets.",
         details: [
-          "Chất lượng cao",
-          "Đóng gói an toàn",
-          "Thị trường xuất khẩu: Nhật, Hàn, EU"
+          "High quality",
+          "Safe packaging",
+          "Export markets: Japan, South Korea, EU"
         ],
         videoId: "GpJIEw6Cz5Y",
       },
@@ -104,6 +105,7 @@ p {
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  margin-bottom: 20px;
 }
 
 .video-wrapper iframe {
@@ -111,5 +113,20 @@ p {
   width: 100%;
   height: 100%;
   border: 0;
+}
+
+/* Back Button */
+.back-button {
+  padding: 10px 20px;
+  background-color: #004080;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.back-button:hover {
+  background-color: #0059b3;
 }
 </style>
