@@ -42,7 +42,7 @@ export default {
         id: 2,
         name: "Product B",
         description: "Premium selection for international markets.",
-        videoId: "GpJIEw6Cz5Y",
+        videoId: "lK1UuZ-v3vs",
       },
       {
         id: 3,
